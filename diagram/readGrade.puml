@@ -1,0 +1,14 @@
+@startuml
+
+actor Tutor
+collections Courses
+
+Tutor -> Courses : get course
+Tutor -> course : readGrades(person)
+loop 
+    course -> task : get grade
+    course -> grade : get person max value
+end
+course -> Tutor : person to value map
+
+@enduml
